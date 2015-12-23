@@ -7,15 +7,16 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/hp/tenderloin-common/HPTouchpad.idc:system/usr/idc/HPTouchpad.idc
 
+# Bluetooth
+PRODUCT_COPY_FILES += \
+    device/hp/tenderloin-common/bluetooth/bluecore6.psr:system/etc/bluecore6.psr \
+    device/hp/tenderloin-common/bluetooth/bt.init.sh:system/etc/bt.init.sh \
+    device/hp/tenderloin-common/bluetooth/init.tenderloin.bt.rc:$(PRODUCT_OUT)/root/init.tenderloin.bt.rc
+
 # Dualboot Magic
 PRODUCT_COPY_FILES += \
     device/hp/tenderloin-common/moboot_control.sh:system/bin/moboot_control.sh \
     device/hp/tenderloin-common/recovery/root/sbin/rebootrecovery.sh:recovery/root/sbin/rebootrecovery.sh
-
-# Bluetooth
-PRODUCT_COPY_FILES += \
-    device/hp/tenderloin-common/bluetooth/bt_vendor.conf:/system/etc/bluetooth/bt_vendor.conf \
-    device/hp/tenderloin-common/bluetooth/bluecore6.psr:/system/etc/bluetooth/bluecore6.psr
 
 PRODUCT_COPY_FILES += \
     device/hp/tenderloin-common/prebuilt/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
@@ -177,6 +178,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
 	make_ext4fs
+
+#Bluetooth
+PRODUCT_PACKAGES += \
+	bccmd \
+	hciattach
 
 # Display
 PRODUCT_PACKAGES += \
