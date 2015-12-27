@@ -10,8 +10,8 @@ PRODUCT_COPY_FILES += \
 # Bluetooth
 PRODUCT_COPY_FILES += \
     device/hp/tenderloin-common/bluetooth/bluecore6.psr:system/etc/bluecore6.psr \
-    device/hp/tenderloin-common/bluetooth/bt.init.sh:system/etc/bt.init.sh \
-    device/hp/tenderloin-common/bluetooth/init.tenderloin.bt.rc:$(PRODUCT_OUT)/root/init.tenderloin.bt.rc
+ #   device/hp/tenderloin-common/bluetooth/bt.init.sh:system/etc/bt.init.sh \
+ #   device/hp/tenderloin-common/bluetooth/init.tenderloin.bt.rc:$(PRODUCT_OUT)/root/init.tenderloin.bt.rc
 
 # Dualboot Magic
 PRODUCT_COPY_FILES += \
