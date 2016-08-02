@@ -39,8 +39,6 @@ BLUETOOTH_HCIATTACH_USING_PROPERTY = true
 
 TARGET_NO_RADIOIMAGE := true
 TARGET_HAVE_TSLIB := false
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 
 RECOVERY_FSTAB_VERSION := 2
 
