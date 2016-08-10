@@ -222,9 +222,6 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
       vendor_items.GetMetadata(input_zip)
       vendor_items.Get("vendor").SetPermissions(script)
 
-  common.CheckSize(boot_img.data, "boot.img", OPTIONS.info_dict)
-  common.ZipWriteStr(output_zip, "boot.img", boot_img.data)
-
   if OPTIONS.backuptool:
     script.ShowProgress(0.02, 10)
     if block_based:
@@ -236,7 +233,6 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.ShowProgress(0.05, 5)
 
   ######## tenderloin build change start ########
-  # script.WriteRawImage("/boot", "boot.img")
   boot_img = open(OPTIONS.device_out + "/boot.img", "r")
   common.ZipWriteStr(output_zip, "boot.img", boot_img.read())
   boot_img.close()
