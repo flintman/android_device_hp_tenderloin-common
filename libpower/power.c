@@ -220,33 +220,30 @@ static void tenderloin_power_hint(struct power_module *module, power_hint_t hint
     int duration = 1;
 
     switch (hint) {
-    case POWER_HINT_INTERACTION:
-    case POWER_HINT_CPU_BOOST:
-        if (boostpulse_open(tenderloin) >= 0) {
-            if (data != NULL)
-                duration = (int) data;
+        case POWER_HINT_INTERACTION:
+            if (boostpulse_open(tenderloin) >= 0) {
+                if (data != NULL)
+                    duration = (int) data;
 
-            snprintf(buf, sizeof(buf), "%d", duration);
-            len = write(tenderloin->boostpulse_fd, buf, strlen(buf));
+                snprintf(buf, sizeof(buf), "%d", duration);
+                len = write(tenderloin->boostpulse_fd, buf, strlen(buf));
 
-            if (len < 0) {
-                strerror_r(errno, buf, sizeof(buf));
-                ALOGE("Error writing to boostpulse: %s\n", buf);
+                if (len < 0) {
+                    strerror_r(errno, buf, sizeof(buf));
+                    ALOGE("Error writing to boostpulse: %s\n", buf);
 
-                pthread_mutex_lock(&tenderloin->lock);
-                close(tenderloin->boostpulse_fd);
-                tenderloin->boostpulse_fd = -1;
-                tenderloin->boostpulse_warned = 0;
-                pthread_mutex_unlock(&tenderloin->lock);
+                    pthread_mutex_lock(&tenderloin->lock);
+                    close(tenderloin->boostpulse_fd);
+                    tenderloin->boostpulse_fd = -1;
+                    tenderloin->boostpulse_warned = 0;
+                    pthread_mutex_unlock(&tenderloin->lock);
+                }
             }
-        }
-        break;
-
-    case POWER_HINT_VSYNC:
-        break;
-
-    default:
-        break;
+            break;
+        case POWER_HINT_VSYNC:
+            break;
+        default:
+            break;
     }
 }
 
@@ -259,7 +256,6 @@ static void tenderloin_power_init(struct power_module *module)
 static struct hw_module_methods_t power_module_methods = {
     .open = NULL,
 };
-
 
 struct tenderloin_power_module HAL_MODULE_INFO_SYM = {
     .base = {

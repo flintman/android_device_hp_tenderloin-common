@@ -92,7 +92,6 @@ TARGET_KERNEL_SOURCE := kernel/htc/msm8960
 ifndef RECOVERY_BUILD
 TARGET_KERNEL_NO_MODULES := true
 endif
-ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
 
 # Logging
 BOARD_NEEDS_CUTILS_LOG := true
@@ -134,10 +133,6 @@ TARGET_PROVIDES_RELEASETOOLS := true
 TARGET_RELEASETOOL_IMG_FROM_TARGET_SCRIPT := device/hp/tenderloin-common/releasetools/tenderloin_img_from_target_files
 TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/hp/tenderloin-common/releasetools/tenderloin_ota_from_target_files
 BLOCK_BASED_OTA := false
-
-# SELinux
-BOARD_SEPOLICY_DIRS += \
-        device/hp/tenderloin-common/sepolicy
 
 # Twrp
 DEVICE_RESOLUTION = 1024x768

@@ -42,8 +42,8 @@ PRODUCT_COPY_FILES += \
     device/hp/tenderloin-common/bluetooth/bluecore6.psr:/system/etc/bluetooth/bluecore6.psr
 
 # Camera
-PRODUCT_PACKAGES += \
-   camera.msm8660
+# PRODUCT_PACKAGES += \
+#    camera.msm8660
 
 # Display
 PRODUCT_PACKAGES += \
@@ -77,7 +77,7 @@ PRODUCT_PACKAGES += \
     lights.tenderloin
 
 # Low-RAM optimizations
-ADDITIONAL_BUILD_PROPERTIES += \
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.low_ram=true \
     persist.sys.force_highendgfx=true \
     dalvik.vm.jit.codecachesize=0 \
