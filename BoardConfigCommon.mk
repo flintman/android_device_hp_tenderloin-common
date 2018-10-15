@@ -21,7 +21,6 @@ TARGET_HAVE_TSLIB := false
 
 # Art
 LIBART_IMG_BASE := 0x57000000
-WITH_DEXPREOPT := true
 
 # Binder API version
 TARGET_USES_64_BIT_BINDER := true
