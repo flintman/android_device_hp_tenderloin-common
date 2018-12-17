@@ -35,7 +35,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.disable_backpressure=1 \
     persist.hwc.mdpcomp.enable=false \
     ro.opengles.version=131072 \
-    ro.sf.lcd_density=160
+    ro.sf.lcd_density=160 \
+    ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
+    ro.surface_flinger.vsync_event_phase_offset_ns=2000000 \
+    ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
 
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
