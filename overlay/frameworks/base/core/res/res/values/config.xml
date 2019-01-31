@@ -208,4 +208,6 @@
         <item>"/system/framework/boot-core-libart.vdex"</item>
     </string-array>
 
+    <bool name="config_alt_ambient_display">false</bool>
+
 </resources>
