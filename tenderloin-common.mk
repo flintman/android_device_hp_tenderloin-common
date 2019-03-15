@@ -236,6 +236,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
     debug.sf.disable_backpressure=1
 
+#Tele Stuff
+PRODUCT_BOOT_JARS += \
+    telephony-ext
+
 # Tools
 PRODUCT_PACKAGES += \
     dosfsck \
