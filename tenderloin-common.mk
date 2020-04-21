@@ -161,7 +161,9 @@ PRODUCT_PACKAGES += \
 
 # Tools
 PRODUCT_PACKAGES += \
-    librs_jni \
+    librs_jni
+
+PRODUCT_HOST_PACKAGES += \
     mkbootimg \
     mkimage
 
