@@ -142,6 +142,9 @@ TARGET_PROVIDES_RELEASETOOLS := true
 TARGET_RELEASETOOL_IMG_FROM_TARGET_SCRIPT := $(PLATFORM_PATH)/releasetools/tenderloin_img_from_target_files
 TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := $(PLATFORM_PATH)/releasetools/tenderloin_ota_from_target_files
 
+#SEPolicy
+SELINUX_IGNORE_NEVERALLOWS := true
+
 # Twrp
 DEVICE_RESOLUTION = 1024x768
 TW_INTERNAL_STORAGE_PATH := "/data/media/0"
