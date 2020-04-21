@@ -10,7 +10,7 @@ include $(CLEAR_VARS)
 #
 #
 LOCAL_MODULE:= ts_srv
-LOCAL_MODULE_TAGS := optional eng
+LOCAL_MODULE_TAGS := optional
 
 LOCAL_SRC_FILES:= ts_srv.c digitizer.c
 LOCAL_CFLAGS := $(common_cflags)
@@ -43,7 +43,7 @@ include $(BUILD_EXECUTABLE)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := ts_srv_set
-LOCAL_MODULE_TAGS := optional eng
+LOCAL_MODULE_TAGS := optional
 
 LOCAL_SRC_FILES := ts_srv_set.c
 LOCAL_CFLAGS := $(common_cflags)
