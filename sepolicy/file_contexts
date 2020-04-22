@@ -1,0 +1,1 @@
+/lvm(.*)?                                 u:object_r:lvm_file:s0
