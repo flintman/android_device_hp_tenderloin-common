@@ -1,0 +1,3 @@
+type lvm, domain;
+domain_trans(init,rootfs,lvm)
+typeattribute lvm lvm_placeholder;
