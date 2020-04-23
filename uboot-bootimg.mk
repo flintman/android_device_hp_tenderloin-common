@@ -26,9 +26,9 @@ recovery_ramdisk := $(PRODUCT_OUT)/ramdisk-recovery.img
 INSTALLED_RECOVERYIMAGE_TARGET := $(PRODUCT_OUT)/recovery.img
 
 # mkimage args
-mkimage_ramdisk_args := -A ARM -O Linux -T RAMDisk -C none -n "$(image_name_ramdisk)"
-mkimage_boot_args := -A ARM -O Linux -T multi -C none -n "$(image_name_boot)"
-mkimage_recovery_args := -A arm -T multi -C none -n "$(image_name_recovery)"
+mkimage_ramdisk_args := mkimage -A ARM -O Linux -T RAMDisk -C none -n "$(image_name_ramdisk)"
+mkimage_boot_args := mkimage -A ARM -O Linux -T multi -C none -n "$(image_name_boot)"
+mkimage_recovery_args := mkimage -A arm -T multi -C none -n "$(image_name_recovery)"
 
 #
 # Boot
@@ -37,14 +37,14 @@ UBOOT_RAMDISK_TARGET := $(BUILT_RAMDISK_TARGET:%.img=%.ub)
 
 $(UBOOT_RAMDISK_TARGET): $(MKIMAGE) $(BUILT_RAMDISK_TARGET)
 	$(call pretty,"Target boot ramdisk: $@")
-	$(hide) $(MKIMAGE) $(mkimage_ramdisk_args) -d $(BUILT_RAMDISK_TARGET) $@
+	$(hide) $(mkimage_ramdisk_args) -d $(BUILT_RAMDISK_TARGET) $@
 	@echo "Made boot ramdisk: $@"
 
 BOOTIMAGE_EXTRA_DEPS := $(UBOOT_RAMDISK_TARGET)
 
 $(INSTALLED_BOOTIMAGE_TARGET): $(MKIMAGE) $(INTERNAL_BOOTIMAGE_FILES) $(BOOTIMAGE_EXTRA_DEPS)
 	$(call pretty,"Target boot image: $@")
-	$(hide) $(MKIMAGE) $(mkimage_boot_args) -d $(INSTALLED_KERNEL_TARGET):$(UBOOT_RAMDISK_TARGET) $@
+	$(hide) $(mkimage_boot_args) -d $(INSTALLED_KERNEL_TARGET):$(UBOOT_RAMDISK_TARGET) $@
 	@echo "Made boot image: $@"
 
 #
@@ -54,7 +54,7 @@ uboot_recovery_ramdisk := $(recovery_ramdisk:%.img=%.ub)
 
 $(uboot_recovery_ramdisk): $(MKIMAGE) $(recovery_ramdisk)
 	$(call pretty,"Target recovery ramdisk: $@")
-	$(hide) $(MKIMAGE) $(mkimage_ramdisk_args) -d $(recovery_ramdisk) $@
+	$(hide) $(mkimage_ramdisk_args) -d $(recovery_ramdisk) $@
 	@echo "Made recovery ramdisk: $@"
 
 RECOVERYIMAGE_EXTRA_DEPS += $(uboot_recovery_ramdisk)
