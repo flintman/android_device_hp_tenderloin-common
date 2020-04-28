@@ -139,10 +139,10 @@ on boot
 
 on fs
     # mount partitions
-    mount_all /vendor/etc/fstab.tenderloin
+    mount_all /system/vendor/etc/fstab.tenderloin
 
     # Enable zRAM
-    swapon_all /vendor/etc/fstab.tenderloin
+    swapon_all /system/vendor/etc/fstab.tenderloin
 
     restorecon /data/.layout_version
     restorecon_recursive /dev/mapper/
